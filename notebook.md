@@ -9,6 +9,7 @@
 * 1/16/2018 - posted bio
 * 1/17/2018 - contributed to big data size
 * 1/26/2018 - contributed to new technology list
+* 1/31/2018 - created readme.yml and bio.tex
 * 2/4/2018 - submitted rest code in git
 
 # Practice
