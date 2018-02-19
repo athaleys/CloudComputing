@@ -17,6 +17,7 @@
 # Practice
 * 1/28/2018 - installed ubuntu on windows 10 using hyperv, problem installing eve on the virtual machine
 * 2/4/2018 - uninstalled hyperv and installed virtual box, completed ubntu installation, installed developer tools, developed rest using eve
+* 2/18/2018 - completed swagger cpu example and checked in to git
 
 # Writing
 
