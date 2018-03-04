@@ -4,6 +4,8 @@ import six
 from swagger_server.models.vm import VM  # noqa: E501
 from swagger_server import util
 
+import json
+
 import vmdao
 
 
@@ -17,12 +19,23 @@ def create_vm(body):  # noqa: E501
 
     :rtype: None
     """
-    print body
+
     if connexion.request.is_json:
         body = VM.from_dict(connexion.request.get_json())  # noqa: E501
 
-    print ("body after jason ", body)
-    return 'do some magic!'
+    vm = {
+        "vmId": body.vm_id,
+        "name": body.name,
+        "image": body.image,
+        "location": body.location,
+        "ramSize": body.ram_size,
+        "diskSize": body.disk_size,
+        "status": body.status
+        }
+
+
+    vmid = vmdao.insertVM(vm)
+    return "vm created"
 
 
 def get_vm_by_id(vmId):  # noqa: E501

@@ -11,7 +11,6 @@ client = MongoClient(MONGO_URL)
 db = client[MONGO_DATABASE]
 vmCollection = db[MONGO_COLLECTION]
 
-pprint.pprint(vmCollection.find_one())
 
 def getAllVMS():
     vms = []
@@ -30,17 +29,15 @@ def getAllVMS():
 
     return vms
 
-print(getAllVMS())
 
 def getVMbyID(vmId):
     return vmCollection.find_one({"vmId": vmId})
 
-print("get by id - ", getVMbyID(2))
 
 def insertVM(vm):
     vmID = vmCollection.insert_one(vm).inserted_id
     return vmID
-
+"""
 vm = {
    "vmId": 1,
    "name": 'aws vm 2',
@@ -52,3 +49,4 @@ vm = {
 }
 
 #print ("create vm - ", insertVM(vm))
+"""
