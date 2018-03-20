@@ -24,32 +24,32 @@ Cloud computing is changing the way we are using various computer resources trad
 \maketitle
 
 \section{Introduction}
-The emergence of cloud computing is changing the paradigm the way we are working with IT resources. It is helping to virtualize various IT resources and eliminating need of in premise infrastructure. EC2 is one such service which provide computation capability in the cloud. We evaluate EC2 as technology to understand various feature provided by the service and how it is getting used to solve practical problems.
+The emergence of cloud computing is changing the paradigm the way we are working with IT resources. It is helping to virtualize various IT resources and eliminating the need for in-premise infrastructure. EC2 is one such service which provides computation capability in the cloud. We evaluate EC2 as technology to understand various feature provided by the service and how it is getting used to solve practical problems.
 
-We get started with the section \emph{Cloud} which explains the concept of Cloud and various cloud offerings. Section \emph{EC2} provides an introduction to the EC2 technology. Then we explore technology in detail through subsections \emph{E-Elastic} which captures elasticity in EC2, \emph{Instances and AMIs} captures various software and hardware options, \emph{Integrated} captures integration information, \emph{Security} explains security features provided, \emph{Storage} explors various storage options and \emph{Pricing} captures pricing information to use EC2.
+We get started with the section \emph{Cloud} which explains the concept of Cloud and various cloud offerings. Section \emph{EC2} provides an introduction to the EC2 technology. Then we explore technology in detail through subsections \emph{E-Elastic} which captures elasticity in EC2, \emph{Instances and AMIs} captures various software and hardware options, \emph{Integrated} captures integration information, \emph{Security} explains security features provided, \emph{Storage} explores various storage options and \emph{Pricing} captures pricing information to use EC2.
 Section \emph{Working with EC2} explores various ways to work with EC2. Section \emph{Real Life Use Cases} talks about real life EC2 usage examples. Section \emph{Conclusion} concludes the study. 
 
 \section{Cloud}
-In order to understand EC2, it's imminent that we understand the concept of Cloud as EC2 is nothing but the cloud offering and it is backed up by various feature and benefits provided by the Cloud technology.  Term \emph{Cloud} comes from the way internet is shown as cloud in various software diagram, so Cloud's one of the easiest interpretation is something which can be done over the internet instead of using our own CPU or storage \cite{www-infoworld}. It is a new concept where instead of using traditional way of setting up IT infrastructure to get the IT work done and them maintain it, infrastructure commercially developed is used remotely over the internet. It virtualize and centralize the whole IT infrastructure required by the enterprise. Cloud is often backed up by massive infrastructure which provides ability to quickly upscale and downscale the required resources like compute, storage and network and can use proven ready to us pre build services. Customer prospective cloud enables them to get new capabilities on demand without bothering about analysis and investment need to be made on procuring new software or hardware. It cuts down on the time involved as this resources are already pre build and readily available for the use through cloud and can be set up within minutes for the use. Addition of resources or scaling down on the resources automatically based on the demand is the biggest advantage. Instead of paying for entire infrastructure at once, cloud provide option to pay per use which might be cheaper option.
+In order to understand EC2, it's imminent that we understand the concept of Cloud as EC2 is nothing but the cloud offering and it is backed up by various feature and benefits provided by the Cloud technology.  Term \emph{Cloud} comes from the way internet is shown as a cloud in various software diagram, so Cloud's one of the easiest interpretation is something which can be done over the internet instead of using our own CPU or storage \cite{www-infoworld}. It is a new concept where instead of using the traditional way of setting up IT infrastructure to get the IT work done and them maintain it, infrastructure commercially developed is used remotely over the internet. It virtualizes and centralizes the whole IT infrastructure required by the enterprise. Cloud is often backed up by massive infrastructure which provides the ability to quickly upscale and downscale the required resources like compute, storage and network and can use proven ready to use pre-build services. Customer prospective cloud enables them to get new capabilities on demand without bothering about analysis and investment need to be made on procuring new software or hardware. It cuts down on the time involved as this resources are already pre-build and readily available for the use through the cloud and can be set up within minutes for the use. Addition of resources or scaling down on the resources automatically based on the demand is the biggest advantage. Instead of paying for entire infrastructure at once, cloud provides an option to pay per use which might be the cheaper alternative.
 
-There are various cloud services are available but majority of the services can be grouped as \cite{www-infoworld}: 
+There are various cloud services are available but the majority of the services can be grouped as \cite{www-infoworld}: 
 \begin{itemize}
-\item {\bf SaaS}: Software as a Service (SaaS) is the cloud where software is provided as service for the usage. Common example is Microsoft Office 365 which can be operated through browser without installing it on the local machine. Most of the enterprise applications in various domains are available through this model which avoid creation of new softwares from the scratch.
-\item {\bf IaaS}: Infrastructure as a Service (IaaS) provides infrastructure resources like compute, storage and network capabilities through this offering. The topic of this paper \emph{EC2} falls under this category.
-\item {\bf PaaS}: Platform as a Service (PaaS) provides platform to develop new tools, offerings or processes and targeted to the developer. This provides controlled build environment where developer has access to required tool as well as adhere to certain process and soft-wares while development, testing and the deployment. Salesforce, force.com are the common example.
+\item {\bf SaaS}: Software as a Service (SaaS) is the cloud where software is provided as service for the usage. A common example is Microsoft Office 365 which can be operated through the browser without installing it on the local machine. Most of the enterprise applications in various domains are available through this model which avoid creation of new software from the scratch.
+\item {\bf IaaS}: Infrastructure as a Service (IaaS) provides infrastructure resources like compute, storage and network capabilities through this offering. The topic of this paper \emph{EC2} falls into this category.
+\item {\bf PaaS}: Platform as a Service (PaaS) provides the platform to develop new tools, offerings or processes and targeted to the developer. This provides controlled build environment where developers have access to the required tool as well as adhere to certain process and soft-wares while development, testing, and the deployment. Salesforce, force.com are the common examples.
 \item {\bf FaaS}: Function as a Service (FaaS) allows to deploy function as an offering which can be invoked through any event. AWS Lambda, Azure Functions, Google Cloud Functions are some of the examples.
 \end{itemize}
 
 \section{EC2}
-EC2 is the commercial webservice offering from Amazon. Amazon describes Elastic Compute Cloud which is referred as EC2 is a web service which provides compute capacity in the cloud along with security and re-size features \cite{www-aws-ec2}. In layman term, we can think of it as virtual computer in cloud which can be used for any task which can be performed using the physical computer. It can be used as server, development instance, personal computer, deployment environment, test environment or many more depending on the need. EC2 instance can have operating system from variety of the range available like Windows, Amazon Linux, CentOS and Debain along with the option of uploading your own operating system \cite{www-aws-ec2-details}. EC2 instance can be loaded with the custom application environment as well as can be used to work with various AWS or other services. As this is the cloud offering it comes with various benefits offered by the cloud technology as well as the massive infrastructure provided by Amazon.
+EC2 is the commercial web service offering from Amazon. Amazon describes Elastic Compute Cloud which is referred as EC2 is a web service which provides compute capacity in the cloud along with security and re-size features \cite{www-aws-ec2}. In layman term, we can think of it as a virtual computer in the cloud which can be used for any task which can be performed using the physical computer. It can be used as server, development instance, personal computer, deployment environment, test environment, virtual machine or many more depending on the need. The EC2 instance can have an operating system from the variety of the range available like Windows, Amazon Linux, CentOS, and Debain along with the option of uploading your own operating system \cite{www-aws-ec2-details}. EC2 instance can be loaded with the custom application environment as well as can be used to work with various AWS or other services. As this is the cloud offering it comes with various benefits offered by the cloud technology as well as the massive infrastructure provided by Amazon.
 
 \subsection{E-Elastic}
-E in EC2 stands for Elastic which enables to increase and decrease capacity quickly but also maintains the desire capacity. It can use to commission hundred to thousand instances simultaneously based on the requirement \cite{www-aws-ec2}. This is one of the great feature as it helps to control computing power needed based on the demand. 
-Amazon EC2 Auto Scaling \cite{www-aws-ec2autoscaling} solution enables to configure various rules which is used to maintain or scale the instances. 
+E in EC2 stands for Elastic which enables to increase and decrease capacity quickly but also maintains the desired capacity. It can use to commission hundred to thousand instances simultaneously based on the requirement \cite{www-aws-ec2}. This is one of the great features as it helps to control computing power needed based on the demand. 
+Amazon EC2 Auto Scaling \cite{www-aws-ec2autoscaling} solution enables to configure various rules which are used to maintain or scale the instances. 
 \subsubsection{Fleet Management}
-EC2 Auto Scaling offers \emph{Fleet Management} which periodically monitors the health of running instance and replaces faulty instance automatically by terminating that instance and replacing it with the new instance. Number of instances can be configured in the fleet and auto scaling will ensure that those number of instances are up and running all the time without any downtime or impact to the users.
+EC2 Auto Scaling offers \emph{Fleet Management} which periodically monitors the health of running instance and replaces faulty instance automatically by terminating that instance and replacing it with the new instance. The number of instances can be configured in the fleet and auto-scaling will ensure that those number of instances are up and running all the time without any downtime or impact to the users.
 \subsubsection{Dynamic Scaling}
-Dynamic Scaling enables to increase or decrease the capacity based on the parameter like CPU utilization where new instance will be added or removed after certain CPU utilization. This mechanism helps to balance the load and provide optimized performance to the user as well as save cost by optimizing the resources.
+Dynamic Scaling enables to increase or decrease the capacity based on the parameter like CPU utilization where new instance will be added or removed after certain CPU utilization. This mechanism helps to balance the load and provide the optimized performance to the user as well as save cost by optimizing the resources.
 
 Figure \ref{f:ec2-auto-scaling} shows EC2 Auto Scaling
 \begin{figure}[!ht]
@@ -58,9 +58,9 @@ Figure \ref{f:ec2-auto-scaling} shows EC2 Auto Scaling
 \end{figure}
 
 \subsection{Instances and AMIs}
-EC2 provides flexibility to use variety of instances which is based on CPU, memory, storage, and the networking capability. Each instance type provides various combination of those parameters to choose appropriate computing capability required as per the use case. This helps in optimizing resources and cost based on the workload. This instances are divided in various categories as General Purpose, Compute Optimized, Memory Optimized, Storage Optimized and Accelerated Computing. To get an idea of instance type provided by EC2 for example in general category the smallest instance type would look like as t2.nano, 1 vCPU, 0.5GB memory, low networking performance with Intel Xeon processor 3.3GHz whereas the higher end instance type combination is m4.16xlarge, 64vCPU, 256GB memory, 25GB networking speed with Intel Xeon E5-2686v4 processor 2.3GHz \cite{www-aws-ec2instance}. There are lot many other options based on the different parameters which can be readily picked up and deployed as EC2 instance without waiting for hardware procurement.
+EC2 provides flexibility to use the variety of instances which is based on CPU, memory, storage, and the networking capability. Each instance type provides the various combination of those parameters to choose appropriate computing capability required as per the use case. This helps in optimizing resources and cost based on the workload. These instances are divided into various categories as General Purpose, Compute Optimized, Memory Optimized, Storage Optimized and Accelerated Computing. To get an idea of instance type provided by EC2 for example in general category the smallest instance type would look like as t2.nano, 1 vCPU, 0.5GB memory, low networking performance with Intel Xeon processor 3.3GHz whereas the higher end instance type combination is m4.16xlarge, 64vCPU, 256GB memory, 25GB networking speed with Intel Xeon E5-2686v4 processor 2.3GHz \cite{www-aws-ec2instance}. There are lot many other options based on the different parameters which can be readily picked up and deployed as EC2 instance without waiting for hardware procurement.
 
-Amazon Machine Image (AMI) \cite{www-aws-ec2instance} is a pre configured image of the required operating system, software, servers, databases and applications. AMI is used to launch the instance which in turn usage selected AMI to run on the instance. There are pre defined AMIs which can be readily used but also custom AMI can be created based on the requirement.
+Amazon Machine Image (AMI) \cite{www-aws-ec2instance} is a pre-configured image of the required operating system, software, servers, databases, and applications. AMI is used to launch the instance which in turn usage selected AMI to run on the instance. There are predefined AMIs which can be readily used but also custom AMI can be created based on the requirement.
 
 Figure \ref{f:ec2-ami-instance} shows EC2 AMI and Instance relationship
 \begin{figure}[!ht]
@@ -69,7 +69,7 @@ Figure \ref{f:ec2-ami-instance} shows EC2 AMI and Instance relationship
 \end{figure}
 
 \subsection{Integrated}
-EC2 is backed by various services offered by AWS and can be integrated with those services. AWS S3, AWS RDC, AWS VPC are some of the services which can be used on conjunction with EC2 to develop different applications \cite{www-aws-ec2}.
+EC2 is backed by various services offered by AWS and can be integrated with those services. AWS S3, AWS RDC, AWS VPC are some of the services which can be used in conjunction with EC2 to develop different applications \cite{www-aws-ec2}.
 Figure \ref{f:ec2-integration} shows sample EC2 integration with S3, RDS and EBS 
 \begin{figure}[!ht]
   \centering\includegraphics[width=\columnwidth]{images/ec2Integration.PNG}
@@ -77,42 +77,43 @@ Figure \ref{f:ec2-integration} shows sample EC2 integration with S3, RDS and EBS
 \end{figure}
 
 \subsection{Security}
-Security in EC2 is provided on multiple level by operating system on the instance, guest OS, firewall and signed API call. Host operating system itself has security and access mechanism built in which can restrict unauthorized access. Guest OS itself is the less privileged access which doesn't allow critical operations. EC2 provides firewall solution which is used to restrict traffic for certain ports as well as certain protocols and IP addresses. Inbound traffic requires explicitly port opening and specific group policy can be applied to access those ports. Remote access through API calls can only be made if secret access key is created and established using EC2 \cite{www-aws-ec2Security}.
+Security in EC2 is provided on multiple levels by the operating system on the instance, guest OS, firewall and signed API call. Host operating system itself has security and access mechanism built in which can restrict unauthorized access. Guest OS itself is the less privileged access which doesn't allow critical operations. EC2 provides firewall solution which is used to restrict traffic for certain ports as well as certain protocols and IP addresses. Inbound traffic requires explicitly port opening and specific group policy can be applied to access those ports. Remote access through API calls can only be made if secret access key is created and established using EC2 \cite{www-aws-ec2Security}.
 
 \subsection{Storage}
-Data storage and processing are essential capabilities for many of the compute operation. EC2 provides various options for the data storage and those options have their own characteristic in terms of performance and durability \cite{www-aws-ec2Storage}. Figure \ref{f:ec2-storage} shows relationship between various storage type provided by EC2
+Data storage and processing are essential capabilities for many of the compute operation. EC2 provides various options for the data storage and those options have their own characteristics in terms of performance and durability \cite{www-aws-ec2Storage}. Figure \ref{f:ec2-storage} shows relationship between various storage type provided by EC2
 \begin{figure}[!ht]
   \centering\includegraphics[width=\columnwidth]{images/ec2Storage.PNG}
   \caption{EC2 Storage Types \cite{www-aws-ec2Storage}}\label{f:ec2-storage}
 \end{figure}
+
 \subsubsection{Amazon EC2 Instance Store} \cite{www-aws-ec2Storage}
-Instance store is the temporary storage attached as physical disk to the host computer. This can be used for the temporary storage like buffer, cache, scratch data as it is lost in case of instance stopped, terminated or disk drive is failed.
+Instance store is the temporary storage attached as a physical disk to the host computer. This can be used for the temporary storage like buffer, cache, scratch data as it is lost in case of instance stopped, terminated or disk drive is failed.
 \subsubsection{Amazon Elastic Block Store (EBS)} \cite{www-aws-ec2Storage}
-EBS provides durable, block level storage to the EC2 instance. This storage is independent of instance life cycle and can be used as primary storage type for the EC2. This is persistent storage and can be attached to multiple instances. Database storage can be done on the EBS. It also provides encryption capabilities.
+EBS provides durable, block-level storage to the EC2 instance. This storage is independent of instance life cycle and can be used as primary storage type for the EC2. This is persistent storage and can be attached to multiple instances. Database storage can be done on the EBS. It also provides encryption capabilities.
 \subsubsection{Amazon Elastic File System (EFS)} \cite{www-aws-ec2Storage}
 EFS provides file system storage to the EC2 instance. This is a persistent store can be used or shared between multiple instances.
 \subsubsection{Amazon Simple Storage Service (S3)} \cite{www-aws-ec2Storage}
 S3 is persistent and instance independent data store which is suitable for data movement and storage in large volume. This storage can be accessed through EC2 as well as from outside over the web. 
 
 \subsection{Pricing}
-EC2 is a commercial offering from Amazon and it offers various pay models which can be used as per the need. It also offers free option to try if micro instance is used.
+EC2 is a commercial offering from Amazon and it offers various pay models which can be used as per the need. It also offers free option to try if the micro instance is used.
 \subsubsection{On-Demand} \cite{www-aws-ec2Pricing}
 This option allows to pay per hour or per second basis based on the instance usage.
 \subsubsection{Spot Instances} \cite{www-aws-ec2Pricing}
 Spot instances are the spare instances and offered at steep discounts based on the biding. Spot instance can be interrupted at any point of the EC2 instance needs its capacity back.
 \subsubsection{Reserved Instances} \cite{www-aws-ec2Pricing}
-Reserved instance offers discounted rates compare to on demand rates based on the commitment provided by the customer. Reserved instance provides capacity reservation to launch instance as required.
+Reserved instance offers discounted rates compared to on-demand rates based on the commitment provided by the customer. Reserved instance provides capacity reservation to launch instance as required.
 \subsubsection{Dedicated Hosts} \cite{www-aws-ec2Pricing}
-Dedicated host provides dedicated physical EC2 instance for the usage. This can be useful if any compliance or regulatory requirement need to be met by the business.
+Dedicated host provides dedicated physical EC2 instance for the usage. This can be useful if any compliance or regulatory requirement needs to be met by the business.
 
 \section{Working with EC2}
-There are 3 different ways which can be used to interact with EC2. To use EC2, first we need to create AWS account and then complete related setup like creation of IAM (identity and Access Management) user to access, creation of key pair for secure access, creation of virtual private cloud (VPC) to lunch instance in user defined virtual network and creation of security group which act as a firewall \cite{www-aws-ec2-setup}.
+There are 3 different ways which can be used to interact with EC2. To use EC2, first we need to create AWS account and then complete related setup like creation of IAM (Identity and Access Management) user to access, creation of key pair for secure access, creation of virtual private cloud (VPC) to lunch instance in user-defined virtual network and creation of security group which act as a firewall \cite{www-aws-ec2-setup}.
 
 \subsection{Management Console}
-Management Console \cite{www-aws-ec2-gettingStarted} is the web based user interface to access various AWS resources. Login to management console and select EC2 from the list to get started. This interface provides capability to configure the instance, launch the instance, connect to the instance and terminate the instance.
+Management Console \cite{www-aws-ec2-gettingStarted} is the web-based user interface to access various AWS resources. Log in to the management console and select EC2 from the list to get started. This interface provides the capability to configure the instance, launch the instance, connect to the instance and terminate the instance.
 
 \subsection{Command Line Tool}
-Amazon provides commands to interact with various AWS product which is called as AWS CLI (Command Line Interface) \cite{www-aws-ec2-cli}. This open source tool is built on top of the AWS SDK for Python. These commands can be used from Liunx shells, windows command line and remotely through a remote terminal like PuTTY. To use AWS CLI, it need to be installed using \emph{pip} on Linux, macOS, or Unix environment and on Windows using MSI installer. Configure AWS CLI by setting key and region. Use CLI commands to work with EC2 instance.
+Amazon provides commands to interact with various AWS product which is called as AWS CLI (Command Line Interface) \cite{www-aws-ec2-cli}. This open source tool is built on top of the AWS SDK for Python. These commands can be used from Linux shells, windows command line and remotely through a remote terminal like PuTTY. To use AWS CLI, it needs to be installed using \emph{pip} on Linux, macOS, or Unix environment and on Windows using MSI installer. Next, AWS CLI need to be configured by setting key and region and use CLI commands to work with EC2 instance.
 Figure \ref{c:cli-launch} shows sample CLI command to launch the instance, it is just for the information purpose only and need to update with correct parameter values to get executed
 \begin{figure}[htb]
 \begin{verbatim}
@@ -126,25 +127,25 @@ aws ec2 run-instances --image-id ami-6e1a0117
 \end{figure}
 
 \subsection{SDKs}
-AWS services can be worked through various platforms or programming languages which enables developer to work with AWS in their preferred programming language. These platform or language specific libraries are called as SDK. Currently SDKs are available for \emph{Android, Browser, iOS, Java, .Net, Node.js, PHP, Python, Ruby, Go,} and \emph{C++} \cite{www-aws-ec2-sdk}. 
+AWS services can be worked through various platforms or programming languages which enables developer to work with AWS in their preferred programming language. These platforms or language-specific libraries are called as SDK. Currently, SDKs are available for \emph{Android, Browser, iOS, Java, .Net, Node.js, PHP, Python, Ruby, Go,} and \emph{C++} \cite{www-aws-ec2-sdk}. 
 
 \section{Real Life Use Cases}
-Any technology can be understand better by understanding real life examples of how its being used practically to solve the problem or the use case. In this section we explore some examples of EC2 usage from real life.
+Any technology can be understood better by understanding real-life examples of how it is being used practically to solve the problem or the use case. In this section, we explore some examples of EC2 usage from real life.
 
 \subsubsection{Netflix}
-Netflix is one of the good example of cloud platform usage as well as AWS usage. Netflix completed their migration to AWS cloud in 2016 which lasted over the period of 7 years \cite{www-media-netflix}. Netflix uses numerous services provided by AWS out of which EC2 is used as computing service which hosts Netflix various customer facing as well as internal applications, Cassandra Database, Elasticsearch and EVCache. It uses EC2 Linux cloud with thousands of virtual server instances along with the auto scale feature to support over 50M subscribers \cite{www-brendangregg}.
+Netflix is one of a good example of cloud platform usage as well as AWS usage. Netflix completed their migration to AWS cloud in 2016 which lasted over the period of 7 years \cite{www-media-netflix}. Netflix uses numerous services provided by AWS out of which EC2 is used as computing service which hosts Netflix various customer facing as well as internal applications, Cassandra Database, Elasticsearch, and EVCache. It uses EC2 Linux cloud with thousands of virtual server instances along with the autoscale feature to support over 50M subscribers \cite{www-brendangregg}.
 
 \subsubsection{Airbnb}
-Airbnb is a community market place for finding the vacation rentals having more than 9 million users. They require massive storage along with the efficient rental booking application to support growing request load. Airbnb uses AWS EC2, elastic load balancing, EMR, S3, Cloudwatch, and Amazon RDS. It uses 200 EC2 instances for application hosting, memcache and search servers \cite{www-aws-ec2-airbnb}.
+Airbnb is a community marketplace for finding the vacation rentals having more than 9 million users. They require massive storage along with the efficient rental booking application to support growing request load. Airbnb uses AWS EC2, elastic load balancing, EMR, S3, Cloudwatch, and Amazon RDS. It uses 200 EC2 instances for application hosting, memcache and search servers \cite{www-aws-ec2-airbnb}.
 
 \subsubsection{Novartis}
-Novartis is a pharmaceutical company involved in drug discover and innovation. They wanted to run complex algorithm to screen 10 million compounds against common cancer target which would require huge computing capability along with the storage. They used AWS EC2, S3 and EBS to built program which ran on multiple instances simultaneously to complete the matching. They used 10,600 EC2 spot instances to run the algorithm \cite{www-aws-ec2-novartis}.
+Novartis is a pharmaceutical company involved in drug discovery and innovation. They wanted to run the complex algorithm to screen 10 million compounds against common cancer target which would require huge computing capability along with the storage. They used AWS EC2, S3, and EBS to built a program which ran on multiple instances simultaneously to complete the matching. They used 10,600 EC2 spot instances to run the algorithm \cite{www-aws-ec2-novartis}.
 
 \subsubsection{Lamborghini}
-Lamborghini is an automotive company which was facing issue with the outdated infrastructure and non scalable environment they were using to host their website. They decided to migrate their website to AWS and used AWS ELB, EC2, RDS, S3, CloudFront and Cloudwatch in their architecture \cite{www-aws-ec2-lamborghini}. It is not clear from the documentation how they are using EC2 in their design but our guess is EC2 is getting used to host web-server for the web application.
+Lamborghini is an automotive company which was facing issue with the outdated infrastructure and nonscalable environment they were using to host their website. They decided to migrate their website to AWS and used AWS ELB, EC2, RDS, S3, CloudFront, and Cloudwatch in their architecture \cite{www-aws-ec2-lamborghini}. It is not clear from the documentation how they are using EC2 in their design but our guess is, EC2 is getting used to hosting web-server for the web application.
 
 \section{Conclusion}
-We explored EC2 technology by understanding its elasticity concept, available hardware and software configuration, available integrations, security features, storage option and pricing modes. We also explored various interfaces to work with EC2 instances and real life example of EC2 usage. The robust features and flexibility offered by EC2 makes it as one of the leading virtual compute resource.
+We explored EC2 technology by understanding its elasticity concept, available hardware and software configuration, available integrations, security features, storage option and pricing modes. We also explored various interfaces to work with EC2 instances and the real-life examples of EC2 usage. The robust features and flexibility offered by EC2 make it as one of the leading virtual compute resource.
 
 \begin{acks}
 
@@ -152,6 +153,6 @@ We explored EC2 technology by understanding its elasticity concept, available ha
   support and suggestions to write this paper.
 
 \end{acks}
+
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{report} 
-
