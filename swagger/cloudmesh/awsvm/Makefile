@@ -24,16 +24,13 @@ service: clean init ## generate service and start the swagger server
 		-o $(DESTDIR) \
 		-D supportPython2=true
 	cp -r *.py $(DESTDIR)/swagger_server/controllers/
-	echo "Creating virtualenv to run swagger server"
-	#create virtualenv
-	virtualenv venv
-	. venv/bin/activate
-	#cd $(DESTDIR) && venv/bin/pip install -r requirements.txt && \
-        #venv/bin/python setup.py install
-	venv/bin/python -m pip install pymongo
-	echo "Staring Swagger server"
-	cd $(DESTDIR) && ../venv/bin/pip install -r requirements.txt && \
-        ../venv/bin/python setup.py install && ../venv/bin/python -m swagger_server
+	python -m pip install pymongo
+	echo "Installing Swagger server"
+	cd $(DESTDIR) && pip install -r requirements.txt && python setup.py install 
+
+start:
+	echo "Starting Swagger Server"
+	cd $(DESTDIR) && python -m swagger_server
 
 startdb: ## start MangoDB
 	echo "Starting MongoDB"
@@ -41,11 +38,12 @@ startdb: ## start MangoDB
 
 test: ## Test swagger service
 	echo "Create VM -->"
-	curl -X POST "http://localhost:8080/aws/vm" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{  \"vmId\": 5,  \"name\": \"aws vm 5\",  \"image\": \"linux\",  \"location\": \"us\",  \"ramSize\": 2020,  \"diskSize\": 101010,  \"status\": \"RUNNING\"}"
+	#curl -X POST "http://localhost:8080/aws/vm" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{  \"vmId\": 5,  \"name\": \"aws vm 5\",  \"image\": \"linux\",  \"location\": \"us\",  \"ramSize\": 2020,  \"diskSize\": 101010,  \"status\": \"RUNNING\"}"
 	echo "Get VM List-->"
 	curl -X GET "http://localhost:8080/aws/vms" -H  "accept: application/json"
 	echo "Get VM by ID-->"
 	curl -X GET "http://localhost:8080/aws/vms/1" -H  "accept: application/json"
+
 stop: ## Stop swagger server and database
 	echo "Stopping swagger serevr"
 	ps -ef | grep 'swagger_server' | grep -v grep | awk '{print $$2}' | xargs kill
@@ -54,6 +52,6 @@ stop: ## Stop swagger server and database
 
 clean: ## Clean generated directories
 	echo "Removing directories"
-	rm -r $(DESTDIR)
-	rm -r venv
+	rm -rf $(DESTDIR)
+	
 
