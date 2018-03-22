@@ -1,13 +1,22 @@
 import pymongo
 from pymongo import MongoClient
 import pprint
+import os
 #from swagger_server.models.vm import VM
 
-MONGO_URL = "mongodb://localhost:27017/"
+MONGO_URL = "mongodb://localhost:27017"
 MONGO_DATABASE = "virtual_machine"
 MONGO_COLLECTION = "vm"
 
-client = MongoClient(MONGO_URL)
+
+# Configuration optional default development database host
+#default_host = 'some-development-mongo-host'
+#db_host = os.environ.get('MONGO_PORT_27017_TCP_ADDR', default_host)
+
+#client = MongoClient(db_host)
+#client = MongoClient(MONGO_URL)
+client = MongoClient(os.environ['DB_PORT_27017_TCP_ADDR'],27017)
+
 db = client[MONGO_DATABASE]
 vmCollection = db[MONGO_COLLECTION]
 

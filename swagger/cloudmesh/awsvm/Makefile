@@ -38,11 +38,11 @@ startdb: ## start MangoDB
 
 test: ## Test swagger service
 	echo "Create VM -->"
-	#curl -X POST "http://localhost:8080/aws/vm" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{  \"vmId\": 5,  \"name\": \"aws vm 5\",  \"image\": \"linux\",  \"location\": \"us\",  \"ramSize\": 2020,  \"diskSize\": 101010,  \"status\": \"RUNNING\"}"
+	curl -X POST "http://localhost:8080/aws/vm" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{  \"vmId\": 5,  \"name\": \"aws vm 5\",  \"image\": \"linux\",  \"location\": \"us\",  \"ramSize\": 2020,  \"diskSize\": 101010,  \"status\": \"RUNNING\"}"
 	echo "Get VM List-->"
 	curl -X GET "http://localhost:8080/aws/vms" -H  "accept: application/json"
 	echo "Get VM by ID-->"
-	curl -X GET "http://localhost:8080/aws/vms/1" -H  "accept: application/json"
+	curl -X GET "http://localhost:8080/aws/vms/5" -H  "accept: application/json"
 
 stop: ## Stop swagger server and database
 	echo "Stopping swagger serevr"
@@ -53,5 +53,11 @@ stop: ## Stop swagger server and database
 clean: ## Clean generated directories
 	echo "Removing directories"
 	rm -rf $(DESTDIR)
-	
+
+docker-start:
+	docker-compose build
+	docker-compose up --remove-orphans --force-recreate
+
+docker-stop:
+	docker stop $$(docker ps -a -q -f status=running)	
 

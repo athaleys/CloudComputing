@@ -21,11 +21,11 @@ WORKDIR /aws
 # Copy the current directory contents into the container at /app
 ADD . /aws
 
-RUN echo $PWD
+#RUN echo $PWD
 
-EXPOSE 8080
+#EXPOSE 8080
 
 RUN make service
 
-CMD ["make", "start"]
+#CMD ["make", "start"]
 

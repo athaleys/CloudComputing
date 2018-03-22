@@ -1,0 +1,11 @@
+swagger:
+  build: .
+  command: make start
+  ports:
+    - "8080:8080"
+  links:
+    - db
+db:
+  image: mongo:3.0.2
+  ports: 
+      - "27017:27017"
