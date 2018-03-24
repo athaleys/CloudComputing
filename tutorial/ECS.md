@@ -40,12 +40,14 @@ Task configured in previous steps will run on EC2 instance. This will configure 
 
 ## Clean Up
 Release the resource created till now ECS Cluster, EC2 and load balancer
+* ECS serice can be release by updating task to 0 and then deleting the service
 * In ECS Console, Click on Clusters
 * Click Default
 * Select service name checkbox and click update
 * Change number of tasks to 0
 * Click Next on subsequent screens and Update service on the last screen
 * Go back to service listing again and select Delete
+* Alternatively service can be deleted without updating number of task to 0. In this case delete will change number of task to 0 and then delete the service.
 * Follow the on-screen instructions to delete the service. This will release ECS service.
 * Log in to EC2 console
 * Click on Instance link in the left navigation
