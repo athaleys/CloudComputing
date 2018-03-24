@@ -1,5 +1,5 @@
 # AWS Elastic Container Service
-Amazon Elastic Container Service (Amazon ECS) is used to deploy Docker containers. This tutorial is to run docker container on the ECS.
+Amazon Elastic Container Service (Amazon ECS) is used to deploy Docker containers. This tutorial is to run docker container on the ECS through AWS management console.
 
 ## Prerequisite
 AWS account and access to AWS Management console.
