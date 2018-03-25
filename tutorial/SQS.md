@@ -1,5 +1,5 @@
 # AWS Simple Queue Service (SQS)
-Amazon Simple Queue Service (Amazon SQS) is a message queuing service which is used to send, store, and receive message between software componenents. This tutorial is to demonstrate on how to use AWS SQS using management console.
+Amazon Simple Queue Service (Amazon SQS) is a message queuing service which is used to send, store, and receive message between software componenents. This section is to demonstrate how to use AWS SQS using management console.
 
 ## Prerequiset
 AWS account and access to AWS Management console.
