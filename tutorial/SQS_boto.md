@@ -34,7 +34,8 @@ Access key id and secret key is required to access AWS SQS through APIs
 ```
 	pip install boto3
 ``` 
-* Install awscli if not installed and set configuration
+* Install awscli if not installed and set configuration. You will have to provide 
+access key and secret key generated in previous step during aws configuration.
 ```
 	pip install awscli
 	aws configure
