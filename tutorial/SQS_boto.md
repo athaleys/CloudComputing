@@ -45,7 +45,7 @@ access key and secret key generated in previous step during aws configuration.
 ```
 	# Get the service resource
 	sqs = boto3.resource('sqs')
-	queue = sqs.create_queue(QueueName='test', Attributes={'DelaySeconds': '5'})
+	queue = sqs.create_queue(QueueName='myQueue', Attributes={'DelaySeconds': '5'})
 
 ``` 
 * Send Message
@@ -54,7 +54,7 @@ access key and secret key generated in previous step during aws configuration.
 	sqs = boto3.resource('sqs')
 
 	# Get the queue
-	queue = sqs.get_queue_by_name(QueueName='test')
+	queue = sqs.get_queue_by_name(QueueName='myQueue')
 
 	# Create a new message	
 	response = queue.send_message(MessageBody='Hello World')
@@ -65,7 +65,7 @@ access key and secret key generated in previous step during aws configuration.
 	sqs = boto3.resource('sqs')
 
 	# Get the queue
-	queue = sqs.get_queue_by_name(QueueName='test')
+	queue = sqs.get_queue_by_name(QueueName='myQueue')
 
 	# Process messages by printing out body
 	for message in queue.receive_messages():
