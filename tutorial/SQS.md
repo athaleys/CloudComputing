@@ -19,3 +19,12 @@ Add permission to queue for accessibility
 * Select Effect as Allow, Principal as Everybody, GetQueueUrl from Actions
 * Click on Add Permission
 * Newly added permisson can be veiwed on Permissions tab
+
+## Send Message
+Send message to queue
+* Select queue from the listing
+* Click Queue Actions > Send a Message
+* Enter message body text, message group id and message duplication id
+* Click on Send Message to submit message to the queue
+* Confirmation message is displayed
+* Click close to close confirmation message
