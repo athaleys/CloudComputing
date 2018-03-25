@@ -28,3 +28,24 @@ Send message to queue
 * Click on Send Message to submit message to the queue
 * Confirmation message is displayed
 * Click close to close confirmation message
+
+## Receive Message
+Read message from the queue
+* Select queue from the listing
+* Click Queue Actions > View/Delete Message
+* Click Start Polling for Messages to poll the message
+* Message posted in previous step sould be visible
+
+## Delete Message
+Delete message from the queue
+* Follow steps in previous step to view the message
+* Select delete checkbox and click on the Delete Message button
+* Click Yes on the confirmation box to permanently delete the message
+
+## Purging and Deleting Queue
+Purg action will delete all the messages present in the queue. Delete queue option will delete the queue and will not be available for the further useage.
+* To purg, select queue and click on Queue Actions > Purge Queue
+* Select Yes on the confirmation box to purege all messages present in the queue
+* Click Ok on the next information box
+* To delete the queue, Select queue and click on Queue Actions > Delete Queue
+* Click Yes on the confirmation message to delete the the queue
