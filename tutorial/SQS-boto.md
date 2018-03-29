@@ -1,10 +1,13 @@
 # AWS Simple Queue Service (SQS) using boto
+
 Amazon Simple Queue Service (Amazon SQS) is a message queuing service which is used to send, store, and receive message between software componenents \cite{hid-sp18-402-sqs}. These steps are for seting up environment to use AWS services from python and sample code to work with SQS \cite{hid-sp18-402-sqst} \cite{hid-sp18-402-boto} \cite{hid-sp18-402-botot}.
 
 ## Prerequiset
+
 AWS account and access to AWS Management console.
 
 ## Create IAM User
+
 To access SQS programatically, we need to do one time setup like createion of IAM user,
 get access key id and secret access key
 * Log in to the AWs management console
@@ -23,6 +26,7 @@ Select AdministratorAccess from the policy names listed.
 * System will provide confirmation of new user creation
 
 ## Get Access Key ID and Secret Access Key
+
 Access key id and secret key is required to access AWS SQS through APIs
 * In Management console, Navigate to IAM > Users
 * Click on newly created user Administrator
@@ -30,48 +34,53 @@ Access key id and secret key is required to access AWS SQS through APIs
 * Download access key .csv file and save in secure location
 
 ## Setup python
+
 * install python boto library
 ```
-	pip install boto3
+pip install boto3
 ``` 
 * Install awscli if not installed and set configuration. You will have to provide 
 access key and secret key generated in previous step during aws configuration.
 ```
-	pip install awscli
-	aws configure
+pip install awscli
+aws configure
 ``` 
 ## Use python to work with SQS
-* Create queue
+
+Create queue
+\TODO{use full sentences. To create a queue we use the following code}
 ```
-	# Get the service resource
-	sqs = boto3.resource('sqs')
-	queue = sqs.create_queue(QueueName='myQueue', Attributes={'DelaySeconds': '5'})
+# Get the service resource
+sqs = boto3.resource('sqs')
+queue = sqs.create_queue(QueueName='myQueue', Attributes={'DelaySeconds': '5'})
 
 ``` 
-* Send Message
+
+Send Message
 ```
-	# Get the service resource
-	sqs = boto3.resource('sqs')
+# Get the service resource
+sqs = boto3.resource('sqs')
 
-	# Get the queue
-	queue = sqs.get_queue_by_name(QueueName='myQueue')
+# Get the queue
+queue = sqs.get_queue_by_name(QueueName='myQueue')
 
-	# Create a new message	
-	response = queue.send_message(MessageBody='Hello World')
+# Create a new message	
+response = queue.send_message(MessageBody='Hello World')
 ```
-* Process Message
+
+Process Message
 ```
-	# Get the service resource
-	sqs = boto3.resource('sqs')
+# Get the service resource
+sqs = boto3.resource('sqs')
 
-	# Get the queue
-	queue = sqs.get_queue_by_name(QueueName='myQueue')
+# Get the queue
+queue = sqs.get_queue_by_name(QueueName='myQueue')
 
-	# Process messages by printing out body
-	for message in queue.receive_messages():
-    		# Print out the body and author (if set)
-    		print(message.body)
-    		# Let the queue know that the message is processed
-    		message.delete()
+# Process messages by printing out body
+for message in queue.receive_messages():
+    	# Print out the body and author (if set)
+    	print(message.body)
+    	# Let the queue know that the message is processed
+    	message.delete()
 ```
 
