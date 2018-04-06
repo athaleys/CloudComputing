@@ -1,56 +1,86 @@
 # AWS Elastic Container Service
 
-\TODO{No images provided so it is difficult to follow}
+\\DONE{No images provided so it is difficult to follow - added screenshots}
 
-Amazon Elastic Container Service (Amazon ECS) is used to deploy Docker containers. Following steps are to run docker container on the ECS through AWS management console referenced and modified as required from Deploy Docekr Container tutorial \cite{hid-sp18-402-ecst}.
+Amazon Elastic Container Service (Amazon ECS) is used to deploy Docker containers. Following steps are to run docker container on the ECS through AWS management console. These steps are referenced and modified as required from getting started guide \cite{hid-sp18-402-ecst}.
 
-## Prerequisite
+### Prerequisite
 
 AWS account and access to AWS Management console.
 
-## Create Task Definition
+### Create IAM User
 
-A task is the blueprint of the application. This tutorial will deploy the default sample web app in the docker container.
+* Log in to the AWs management console
+* Select IAM
+* Click Users > Add User
+* Enetr User Name as Administrator, select access type as AWS Management Console access, select console password
+as custom password and enter password in the box. You can also force password rest by checking Require password reset checkbox, in this 
+case we are not forcing password change.
+* Click Next Permissions button
+* Select "Add user to group" on the next screen and click Create Group
+* Enter group name as Administrators. Select Job function as filter or enetr AdministratorAccess in search box in front of the filter.
+Select AdministratorAccess from the policy names listed.
+* Click Create Group button
+* Newly created group will be shown selected. Select the newly created group if it is not selected and click on Review button.
+* Click Create User on the next screen
+* System will provide confirmation of new user creation
+
+
+### Create Container and Task
+
+A task is the blueprint of the application. This tutorial will deploy the default sample web app in the docker container using ECS.
 * Login to the AWs management console
-* Enter task name, container name, an image for the docker container, memory limit, and port mappings
-* Click Next Step
+* Navigate to ECS and Click on Get started link
+* This wizard will gudie to deploy application as a container
+* First we will select image for the container. Here we are selecting Sample-app image which hosts static website.
 
-## Configure Service
+![Select Container Image](images/container.png) 
 
-* Configure service by providing service name and the desired number of tasks
-* ECS will maintain the number of copies provided in the desired number of tasks
-* Check box for load balancing to use application load balancer
-* Keep default load balance attributes or change as per the need
-* Select service IAM role from available options or create default ecsServiceRole role
-* Click Next Step
+* Edit task definition as needed using edit button. We are keeping default values.
+
+![Task def](images/task-def.png)
+
+* Click Next button
+
+### Configure Service
+
+* A service allows to run and maintain a specified number of simultaneous instances of a task definition in an ECS cluster
+* ECS will maintain the number of copies provided in the desired number of tasks. We are keeping the default information.
+* Select load balancer as None. Application load balancer can be selected if load balancing is required.
+
+![Configure Service](images/service.png)
+
+* Click Next button
 
 ## Configure Cluster
 
-Task configured in previous steps will run on EC2 instance. This will configure the EC2 cluster.
-* Enter cluster name, EC2 instance type, number of instances and key pair
-* Configure Security access by configuring known IP address for the access
-* Select instance IAM role or create default ecsInstanceRole
-* Click on Review and Launch
+This step will configure Fargate cluster which is fully managed by AWS.
+* Enter cluster name
 
-## Review and Launch Resource
+![Configure Service](images/cluster.png)
+
+* Click on Next
+
+### Review and Create Resource
 
 * Review information entered till now
-* Edit information as needed
-* Click on Review Instance and Run Service
+* Edit information as needed using edit button
+* Click Create
 * Next screen shows launch progress. Wait till service is launched. View Service button will be enabled once service is launched.
 * Click on View Service once enabled
 
-## Access Deployed Application
+### Access Deployed Application
 
-* Click Details tab
-* Click Load Balancers Under Load Balancing
-* Copy DNS Name and enter on the web browser address bar
-* You should see web page from app deployed in the docker container
+Access this deployed sample web application using a web browser by following below steps
+* On the Service: service-name page, click the Tasks tab.
+* Click on the task deployed in previous steps
+* In the Network section, click the ENI Id for your task. This will take you to the EC2 console where you can view the details of the network interface associated with your task, including it's IPv4 Public IP address.
+* Enter the IPv4 Public IP address in your web browser and you should see a web page that displays the Amazon ECS sample application. 
 
-## Clean Up
+### Clean Up
 
-Release the resource created till now ECS Cluster, EC2 and load balancer
-* ECS serice can be release by updating task to 0 and then deleting the service
+Release the resource created till now ECS Cluster, service etc
+* ECS service can be released by updating task to 0 and then deleting the service
 * In ECS Console, Click on Clusters
 * Click Default
 * Select service name checkbox and click update
@@ -59,10 +89,8 @@ Release the resource created till now ECS Cluster, EC2 and load balancer
 * Go back to service listing again and select Delete
 * Alternatively service can be deleted without updating number of task to 0. In this case delete will change number of task to 0 and then delete the service.
 * Follow the on-screen instructions to delete the service. This will release ECS service.
-* Log in to EC2 console
-* Click on Instance link in the left navigation
-* Select the instance
-* Select Actions > Instance State > Terminate. This will release EC2 instance.
-* Click on Load Balancing > Load Balancer from the left-hand navigation
-* Select load balancer
-* Select Action > Delete. This will release the load balancer.
+* Click on Clusters link in ESC console
+* Click on default cluster which we created in previous steps
+* Clcik Delete Cluster button. Click Delete button in the confirmation box provided.
+* This will delete all associated resources.
+
