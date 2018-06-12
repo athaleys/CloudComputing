@@ -1,0 +1,38 @@
+\appendix
+\section{chktex}
+\begin{tiny}
+\begin{verbatim}
+make[2]: Entering directory '/home/sushant/github/cloudmesh-community/hid-sp18-518/project-paper'
+cd ../../hid-sample; git pull
+Already up-to-date.
+cp ../../hid-sample/paper/Makefile .
+cp ../../hid-sample/paper/report.tex .
+WRNING: line longer than 80 characters
+('      ', '113:', '\\item \\emph{etc} - this directory contains all configuration related files. \\emph{credentials.yml} file contains\n')
+WRNING: line longer than 80 characters
+('      ', '90:', 'cloud. This directory also contains key file required by Google cloud for the connection.\n')
+WRNING: line longer than 80 characters
+('      ', '92:', '\\item \\emph{benchmarking.sh} - this script contains commands to generate data for benchmark\n')
+WRNING: line longer than 80 characters
+('      ', '229:', 'build and run the docker container. Make file also contains commands to build swagger service and start swagger service as a standalone application. Once service is deployed, it can be accessed through any browser or curl calls.\n')
+WRNING: line longer than 80 characters
+('      ', '104:', '\\item \\emph{AWS} - AWS account along with access key and a secret key is required to connect AWS cloud.\n')
+WRNING: line longer than 80 characters
+('      ', '98:', 'Azure tenant ID, subscription ID, application id and password is required to connect Azure cloud.\n')
+WRNING: line longer than 80 characters
+('      ', '95:', 'Google service account ID, project ID along with key file is required to connect Google cloud.\n')
+WRNING: line longer than 80 characters
+('      ', '305:', 'This information should be kept confidential and need to be configured in the yml file under the etc directory. Key file generated for Google cloud also need to be kept in this directory. Default VM parameters like image, size, and region can be specified in configuration and Swagger specification file.\n')
+WRNING: line longer than 80 characters
+('      ', '83:', 'Table\\ref{t:serviceFunctions} describes functions provided by the swagger service.\n')
+WRNING: line longer than 80 characters
+('      ', '98:', '/storage/aws/s3/\\{bucketName\\}/ downloadFile & Download file from S3 to the download directory \\\\\n')
+Warning 2 in content.tex line 399: Non-breaking space (`~') should have been used.
+Code is organized as described in Figure \ref{c:code-structure}  
+                                        ^
+Warning 44 in content.tex line 469: User Regex: -2:Use \toprule, midrule, or \bottomrule from booktabs.
+\hline  
+^^^^^^
+make[2]: Leaving directory '/home/sushant/github/cloudmesh-community/hid-sp18-518/project-paper'
+\end{verbatim}
+\end{tiny}
